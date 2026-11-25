@@ -1,0 +1,107 @@
+diff -ru a/devo/config.py b/devo/config.py
+--- a/devo/config.py	2026-11-24 14:58:24.298468352 +0100
++++ b/devo/config.py	2026-11-24 14:58:44.202440464 +0100
+@@ -31,4 +31,15 @@
+ 
+ _C.MIXED_PRECISION = True
+ 
++# --- MADEVO : modes d'injection du masque dynamique à l'inférence (défauts = comportement
++# publié : le masque n'atténue que la score map). Voir paper/experiments/.
++# p <- p ** DYN_GAMMA avant tout usage (température ; 1.0 = inchangé)
++_C.DYN_GAMMA = 1.0
++# atténue aussi la confiance ω de la BA par (1 - p) au centre de chaque patch
++_C.DYN_BA_WEIGHT = False
++# suppression amont (baseline type Pellerito et al.) : met à zéro les voxels où p > seuil,
++# et n'atténue PAS la score map
++_C.DYN_DELETE = False
++_C.DYN_DELETE_THRESH = 0.5
++
+ cfg = _C
+diff -ru a/devo/devo.py b/devo/devo.py
+--- a/devo/devo.py	2026-11-24 14:58:24.310468348 +0100
++++ b/devo/devo.py	2026-11-24 14:58:44.230440454 +0100
+@@ -66,6 +66,8 @@
+         self.colors_ = torch.zeros(self.N, self.M, 3, dtype=torch.uint8, device="cuda")
+ 
+         self.index_ = torch.zeros(self.N, self.M, dtype=torch.long, device="cuda")
++        # MADEVO : probabilité dynamique au centre de chaque patch (DYN_BA_WEIGHT)
++        self.dyn_ = torch.zeros(self.N, self.M, dtype=torch.float, device="cuda")
+         self.index_map_ = torch.zeros(self.N, dtype=torch.long, device="cuda")
+ 
+         ### network attributes ###
+@@ -334,6 +336,7 @@
+                 self.poses_[i] = self.poses_[i+1]
+                 self.patches_[i] = self.patches_[i+1]
+                 self.patches_gt_[i] = self.patches_gt_[i+1]
++                self.dyn_[i] = self.dyn_[i+1]
+                 self.intrinsics_[i] = self.intrinsics_[i+1]
+ 
+                 self.imap_[i%self.mem] = self.imap_[(i+1) % self.mem]
+@@ -360,6 +363,10 @@
+ 
+         lmbda = torch.as_tensor([1e-4], device="cuda")
+         weight = weight.float()
++        if self.cfg.DYN_BA_WEIGHT:
++            # MADEVO : ω <- ω · (1 - p) par arête, comme à l'entraînement couplé (devo/ba.py)
++            dw = (1.0 - self.dyn_.view(-1)[self.kk]).clamp(0.0, 1.0)
++            weight = weight * dw.view(1, -1, 1)
+             
+             # [DEBUG]
+             # dij = (self.ii - self.jj).abs()
+@@ -438,6 +445,18 @@
+         if self.viz_flow:
+             self.image_ = image.detach().cpu().permute((1, 2, 0)).numpy()
+ 
++        # MADEVO : modes d'inférence du masque dynamique (cf. devo/config.py, défauts inertes)
++        if dyn_score is not None:
++            dyn_score = torch.as_tensor(dyn_score, device=image.device).float()
++            if self.cfg.DYN_GAMMA != 1.0:
++                dyn_score = dyn_score.clamp(0.0, 1.0) ** self.cfg.DYN_GAMMA
++            if self.cfg.DYN_DELETE:
++                d = dyn_score.reshape(1, 1, *dyn_score.shape[-2:])
++                keep = (F.interpolate(d, size=image.shape[-2:], mode="nearest")[0, 0]
++                        <= self.cfg.DYN_DELETE_THRESH).to(image.dtype)
++                image = image * keep          # events effacés en amont de DEVO
++                dyn_score = None              # score map intacte : suppression pure
++
+         if not self.evs:
+             image = 2 * (image[None,None] / 255.0) - 0.5 
+         else:
+@@ -530,6 +549,17 @@
+ 
+         self.patches_gt_[self.n] = patches.clone()
+ 
++        if self.cfg.DYN_BA_WEIGHT:
++            if dyn_score is None:
++                self.dyn_[self.n] = 0.0
++            else:
++                hf, wf = fmap.shape[-2:]
++                d = F.interpolate(dyn_score.reshape(1, 1, *dyn_score.shape[-2:]).float(),
++                                  size=(hf, wf), mode="nearest")[0, 0]
++                px = patches[0, :, 0, self.P // 2, self.P // 2].round().long().clamp(0, wf - 1)
++                py = patches[0, :, 1, self.P // 2, self.P // 2].round().long().clamp(0, hf - 1)
++                self.dyn_[self.n] = d[py, px]
++
+         ### update state attributes ###
+         self.tlist.append(tstamp)
+         self.tstamps_[self.n] = self.counter
+Only in b/devo: __pycache__
+diff -ru a/evals/eval_table.py b/evals/eval_table.py
+--- a/evals/eval_table.py	2026-11-24 14:58:24.326468342 +0100
++++ b/evals/eval_table.py	2026-11-24 14:58:56.554424412 +0100
+@@ -279,6 +279,14 @@
+     from devo.config import cfg as devo_cfg
+     from utils.eval_utils import assert_eval_config
+     devo_cfg.merge_from_file(str(_get(cfg, "devo.config")))
++    # Surcharges de la config DEVO (modes d'injection DYN_*), p. ex.
++    # --set +devo.cfg_overrides.DYN_BA_WEIGHT=true
++    cfg_over = _get(cfg, "devo.cfg_overrides", {}) or {}
++    if cfg_over:
++        # yacs exige le type exact de la valeur par défaut (2 -> 2.0 pour DYN_GAMMA)
++        devo_cfg.merge_from_list([x for k, v in cfg_over.items()
++                                  for x in (k, type(devo_cfg[k])(v) if k in devo_cfg else v)])
++        print(f"[eval] surcharges DEVO : {cfg_over}", flush=True)
+     torch.manual_seed(args.seed)
+ 
+     # Les runners hérités lisent ces attributs sur `args`.
+Only in b/evals: __pycache__

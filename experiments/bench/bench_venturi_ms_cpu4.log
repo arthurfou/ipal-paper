@@ -1,0 +1,17 @@
+device=cpu threads=4 torch=2.4.1+cu118
+
+## v4 (D=96) : 1.009 M paramètres — 3.85 Mo fp32, 1.93 Mo fp16, 0.96 Mo int8
+| capteur | entrée | sortie (score map) | GFLOPs/frame | GMACs/frame | cadence | GFLOP/s requis | répartition enc / LSTM / déc+tête | mémoire activ. | latence |
+|---|---|---|---|---|---|---|---|---|---|
+| RPG (DAVIS240C) | 180×240 | 45×60 | 2.48 | 1.24 | 30 Hz | 74.4 | 56 / 37 / 7 % | – | 6.4 ms |
+| MVSEC (DAVIS346) | 260×346 | 65×86 | 5.20 | 2.60 | 30 Hz | 155.9 | 56 / 37 / 7 % | – | 12.1 ms |
+| EVIMO2 / VECtor / EDS (640×480) | 480×640 | 120×160 | 17.45 | 8.73 | 60 Hz | 1047.1 | 57 / 36 / 7 % | – | 39.4 ms |
+| TUM-VIE (1280×720) | 720×1280 | 180×320 | 52.36 | 26.18 | 40 Hz | 2094.3 | 57 / 36 / 7 % | – | 127.5 ms |
+
+## v4large (D=128) : 1.793 M paramètres — 6.84 Mo fp32, 3.42 Mo fp16, 1.71 Mo int8
+| capteur | entrée | sortie (score map) | GFLOPs/frame | GMACs/frame | cadence | GFLOP/s requis | répartition enc / LSTM / déc+tête | mémoire activ. | latence |
+|---|---|---|---|---|---|---|---|---|---|
+| RPG (DAVIS240C) | 180×240 | 45×60 | 4.39 | 2.19 | 30 Hz | 131.6 | 56 / 37 / 7 % | – | 7.8 ms |
+| MVSEC (DAVIS346) | 260×346 | 65×86 | 9.20 | 4.60 | 30 Hz | 275.9 | 56 / 37 / 7 % | – | 16.2 ms |
+| EVIMO2 / VECtor / EDS (640×480) | 480×640 | 120×160 | 30.88 | 15.44 | 60 Hz | 1852.7 | 56 / 37 / 7 % | – | 58.4 ms |
+| TUM-VIE (1280×720) | 720×1280 | 180×320 | 92.64 | 46.32 | 40 Hz | 3705.4 | 56 / 37 / 7 % | – | 202.2 ms |

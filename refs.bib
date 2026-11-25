@@ -1,0 +1,751 @@
+% =====================================================================
+% references.bib — bibliographie partagée (rapport de stage + papier)
+% Arthur — IPAL (CNRS/NUS), 2026
+%
+% Métadonnées vérifiées via l'API arXiv (titre, auteurs, journal-ref,
+% comment) le 2026-07-16. Les clés sont identiques aux IDs de fiche
+% dans final_report/RESSOURCES.md et paper_arthur/RESSOURCES.md.
+%
+% ⚠ ATTENTION AUX DEUX "DEVO" — ce sont deux papiers sans rapport :
+%   klenk2024devo = Deep Event VO (3DV 2024)      <- celui qu'on modifie
+%   zuo2022devo   = Depth-Event VO (ICRA 2022)    <- stéréo depth+event
+%
+% Usage LaTeX :
+%   \bibliographystyle{IEEEtran}   % ou plain, abbrv...
+%   \bibliography{../references}   % chemin relatif depuis main.tex
+% =====================================================================
+
+% ---------------------------------------------------------------------
+% BRIQUE DE BASE & CONCURRENCE DIRECTE
+% ---------------------------------------------------------------------
+
+@inproceedings{klenk2024devo,
+  title     = {Deep Event Visual Odometry},
+  author    = {Klenk, Simon and Motzet, Marvin and Koestler, Lukas and Cremers, Daniel},
+  booktitle = {International Conference on 3D Vision (3DV)},
+  year      = {2024},
+  eprint    = {2312.09800},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.CV},
+  note      = {Code: https://github.com/tum-vision/DEVO}
+}
+
+@inproceedings{pellerito2026suppression,
+  title     = {Motion-aware Event Suppression for Event Cameras},
+  author    = {Pellerito, Roberto and Messikommer, Nico and Cioffi, Giovanni and Cannici, Marco and Scaramuzza, Davide},
+  booktitle = {Robotics: Science and Systems (RSS)},
+  year      = {2026},
+  eprint    = {2602.23204},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.CV},
+  note      = {Code: https://github.com/uzh-rpg/event\_suppression (GPLv3)}
+}
+
+@article{bescos2018dynaslam,
+  title   = {{DynaSLAM}: Tracking, Mapping and Inpainting in Dynamic Scenes},
+  author  = {Bescos, Berta and F{\'a}cil, Jos{\'e} M. and Civera, Javier and Neira, Jos{\'e}},
+  journal = {IEEE Robotics and Automation Letters},
+  volume  = {3},
+  number  = {4},
+  pages   = {4076--4083},
+  year    = {2018},
+  eprint  = {1806.05620},
+  archivePrefix = {arXiv}
+}
+
+% ---------------------------------------------------------------------
+% MOTION SEGMENTATION ÉVÉNEMENTIELLE
+% ---------------------------------------------------------------------
+
+@inproceedings{mitrokhin2019evimo,
+  title     = {{EV-IMO}: Motion Segmentation Dataset and Learning Pipeline for Event Cameras},
+  author    = {Mitrokhin, Anton and Ye, Chengxi and Ferm{\"u}ller, Cornelia and Aloimonos, Yiannis and Delbruck, Tobi},
+  booktitle = {IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS)},
+  year      = {2019},
+  eprint    = {1903.07520},
+  archivePrefix = {arXiv}
+}
+
+@article{burner2022evimo2,
+  title   = {{EVIMO2}: An Event Camera Dataset for Motion Segmentation, Optical Flow, Structure from Motion, and Visual Inertial Odometry in Indoor Scenes with Monocular or Stereo Algorithms},
+  author  = {Burner, Levi and Mitrokhin, Anton and Ferm{\"u}ller, Cornelia and Aloimonos, Yiannis},
+  journal = {arXiv preprint arXiv:2205.03467},
+  year    = {2022},
+  eprint  = {2205.03467},
+  archivePrefix = {arXiv},
+  note    = {Technical report. Dataset: https://better-flow.github.io/evimo}
+}
+
+@article{wang2023unevimo,
+  title   = {{Un-EVIMO}: Unsupervised Event-Based Independent Motion Segmentation},
+  author  = {Wang, Ziyun and Guo, Jinyuan and Daniilidis, Kostas},
+  journal = {arXiv preprint arXiv:2312.00114},
+  year    = {2023},
+  eprint  = {2312.00114},
+  archivePrefix = {arXiv},
+  note    = {Version v2 (2025-08)}
+}
+
+@inproceedings{stoffregen2019motionseg,
+  title     = {Event-Based Motion Segmentation by Motion Compensation},
+  author    = {Stoffregen, Timo and Gallego, Guillermo and Drummond, Tom and Kleeman, Lindsay and Scaramuzza, Davide},
+  booktitle = {IEEE/CVF International Conference on Computer Vision (ICCV)},
+  pages     = {7244--7253},
+  year      = {2019},
+  eprint    = {1904.01293},
+  archivePrefix = {arXiv}
+}
+
+@inproceedings{mitrokhin2018tracking,
+  title     = {Event-based Moving Object Detection and Tracking},
+  author    = {Mitrokhin, Anton and Ferm{\"u}ller, Cornelia and Parameshwara, Chethan and Aloimonos, Yiannis},
+  booktitle = {IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS)},
+  year      = {2018},
+  eprint    = {1803.04523},
+  archivePrefix = {arXiv}
+}
+
+@inproceedings{parameshwara2021spikems,
+  title     = {{SpikeMS}: Deep Spiking Neural Network for Motion Segmentation},
+  author    = {Parameshwara, Chethan M. and Li, Simin and Ferm{\"u}ller, Cornelia and Sanket, Nitin J. and Evanusa, Matthew S. and Aloimonos, Yiannis},
+  booktitle = {IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS)},
+  year      = {2021},
+  eprint    = {2105.06562},
+  archivePrefix = {arXiv}
+}
+
+@inproceedings{sanket2020evdodgenet,
+  title     = {{EVDodgeNet}: Deep Dynamic Obstacle Dodging with Event Cameras},
+  author    = {Sanket, Nitin J. and Parameshwara, Chethan M. and Singh, Chahat Deep and Kuruttukulam, Ashwin V. and Ferm{\"u}ller, Cornelia and Scaramuzza, Davide and Aloimonos, Yiannis},
+  booktitle = {IEEE International Conference on Robotics and Automation (ICRA)},
+  year      = {2020},
+  eprint    = {1906.02919},
+  archivePrefix = {arXiv}
+}
+
+@inproceedings{ye2020unsupervised,
+  title     = {Unsupervised Learning of Dense Optical Flow, Depth and Egomotion from Sparse Event Data},
+  author    = {Ye, Chengxi and Mitrokhin, Anton and Ferm{\"u}ller, Cornelia and Yorke, James A. and Aloimonos, Yiannis},
+  booktitle = {IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS)},
+  year      = {2020},
+  eprint    = {1809.08625},
+  archivePrefix = {arXiv}
+}
+
+% ---------------------------------------------------------------------
+% VO / SLAM ÉVÉNEMENTIEL
+% ---------------------------------------------------------------------
+
+@article{rebecq2017evo,
+  title   = {{EVO}: A Geometric Approach to Event-Based 6-{DOF} Parallel Tracking and Mapping in Real Time},
+  author  = {Rebecq, Henri and Horstsch{\"a}fer, Timo and Gallego, Guillermo and Scaramuzza, Davide},
+  journal = {IEEE Robotics and Automation Letters},
+  volume  = {2},
+  number  = {2},
+  pages   = {593--600},
+  year    = {2017}
+}
+
+@article{zhou2021esvo,
+  title   = {Event-based Stereo Visual Odometry},
+  author  = {Zhou, Yi and Gallego, Guillermo and Shen, Shaojie},
+  journal = {IEEE Transactions on Robotics},
+  volume  = {37},
+  number  = {5},
+  pages   = {1433--1450},
+  year    = {2021},
+  eprint  = {2007.15548},
+  archivePrefix = {arXiv}
+}
+
+@article{niu2024esvo2,
+  title   = {{ESVO2}: Direct Visual-Inertial Odometry with Stereo Event Cameras},
+  author  = {Niu, Junkai and Zhong, Sheng and Lu, Xiuyuan and Shen, Shaojie and Gallego, Guillermo and Zhou, Yi},
+  journal = {IEEE Transactions on Robotics},
+  year    = {2025},
+  eprint  = {2410.09374},
+  archivePrefix = {arXiv}
+}
+
+@inproceedings{hidalgo2022eds,
+  title     = {Event-aided Direct Sparse Odometry},
+  author    = {Hidalgo-Carri{\'o}, Javier and Gallego, Guillermo and Scaramuzza, Davide},
+  booktitle = {IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
+  year      = {2022},
+  eprint    = {2204.07640},
+  archivePrefix = {arXiv}
+}
+
+@inproceedings{zuo2022devo,
+  title     = {{DEVO}: Depth-Event Camera Visual Odometry in Challenging Conditions},
+  author    = {Zuo, Yi-Fan and Yang, Jiaqi and Chen, Jiaben and Wang, Xia and Wang, Yifu and Kneip, Laurent},
+  booktitle = {IEEE International Conference on Robotics and Automation (ICRA)},
+  year      = {2022},
+  eprint    = {2202.02556},
+  archivePrefix = {arXiv}
+}
+
+@inproceedings{weikersdorfer2014slam,
+  title     = {Event-based {3D} {SLAM} with a depth-augmented dynamic vision sensor},
+  author    = {Weikersdorfer, David and Adrian, David B. and Cremers, Daniel and Conradt, J{\"o}rg},
+  booktitle = {IEEE International Conference on Robotics and Automation (ICRA)},
+  pages     = {359--364},
+  year      = {2014}
+}
+
+@inproceedings{evennicerslam2024,
+  title     = {{EvenNICER-SLAM}: Event-based Neural Implicit Encoding {SLAM}},
+  author    = {Chen, Shi and Paudel, Danda Pani and Van Gool, Luc},
+  booktitle = {arXiv preprint arXiv:2410.03812},
+  year      = {2024},
+  eprint    = {2410.03812},
+  archivePrefix = {arXiv}
+}
+
+% ---------------------------------------------------------------------
+% VO / SLAM CLASSIQUE & APPRIS (RGB)
+% ---------------------------------------------------------------------
+
+@article{murartal2015orbslam,
+  title   = {{ORB-SLAM}: A Versatile and Accurate Monocular {SLAM} System},
+  author  = {Mur-Artal, Ra{\'u}l and Montiel, J. M. M. and Tard{\'o}s, Juan D.},
+  journal = {IEEE Transactions on Robotics},
+  volume  = {31},
+  number  = {5},
+  pages   = {1147--1163},
+  year    = {2015},
+  eprint  = {1502.00956},
+  archivePrefix = {arXiv}
+}
+
+@inproceedings{engel2014lsdslam,
+  title     = {{LSD-SLAM}: Large-Scale Direct Monocular {SLAM}},
+  author    = {Engel, Jakob and Sch{\"o}ps, Thomas and Cremers, Daniel},
+  booktitle = {European Conference on Computer Vision (ECCV)},
+  pages     = {834--849},
+  year      = {2014}
+}
+
+@inproceedings{yang2020d3vo,
+  title     = {{D3VO}: Deep Depth, Deep Pose and Deep Uncertainty for Monocular Visual Odometry},
+  author    = {Yang, Nan and von Stumberg, Lukas and Wang, Rui and Cremers, Daniel},
+  booktitle = {IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
+  year      = {2020},
+  eprint    = {2003.01060},
+  archivePrefix = {arXiv}
+}
+
+@article{li2021deepslam,
+  title   = {{DeepSLAM}: A Robust Monocular {SLAM} System With Unsupervised Deep Learning},
+  author  = {Li, Ruihao and Wang, Sen and Gu, Dongbing},
+  journal = {IEEE Transactions on Industrial Electronics},
+  volume  = {68},
+  number  = {4},
+  pages   = {3577--3587},
+  year    = {2021},
+}
+% [A VERIFIER] PDF non récupéré — métadonnées issues du référencement éditeur, non vérifiées sur le texte
+
+@inproceedings{kendall2015posenet,
+  title     = {{PoseNet}: A Convolutional Network for Real-Time 6-{DOF} Camera Relocalization},
+  author    = {Kendall, Alex and Grimes, Matthew and Cipolla, Roberto},
+  booktitle = {IEEE International Conference on Computer Vision (ICCV)},
+  year      = {2015},
+  eprint    = {1505.07427},
+  archivePrefix = {arXiv}
+}
+
+@inproceedings{liu2024slam3r,
+  title     = {{SLAM3R}: Real-Time Dense Scene Reconstruction from Monocular {RGB} Videos},
+  author    = {Liu, Yuzheng and Dong, Siyan and Wang, Shuzhe and Yin, Yingda and Yang, Yanchao and Fan, Qingnan and Chen, Baoquan},
+  booktitle = {IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
+  year      = {2025},
+  eprint    = {2412.09401},
+  archivePrefix = {arXiv}
+}
+
+@inproceedings{zhu2023nicerslam,
+  title     = {{NICER-SLAM}: Neural Implicit Scene Encoding for {RGB} {SLAM}},
+  author    = {Zhu, Zihan and Peng, Songyou and Larsson, Viktor and Cui, Zhaopeng and Oswald, Martin R. and Geiger, Andreas and Pollefeys, Marc},
+  booktitle = {International Conference on 3D Vision (3DV)},
+  year      = {2024},
+  eprint    = {2302.03594},
+  archivePrefix = {arXiv}
+}
+
+% ---------------------------------------------------------------------
+% SURVEYS
+% ---------------------------------------------------------------------
+
+@article{gallego2020survey,
+  title   = {Event-based Vision: A Survey},
+  author  = {Gallego, Guillermo and Delbr{\"u}ck, Tobi and Orchard, Garrick and Bartolozzi, Chiara and Taba, Brian and Censi, Andrea and Leutenegger, Stefan and Davison, Andrew J. and Conradt, J{\"o}rg and Daniilidis, Kostas and Scaramuzza, Davide},
+  journal = {IEEE Transactions on Pattern Analysis and Machine Intelligence},
+  volume  = {44},
+  number  = {1},
+  pages   = {154--180},
+  year    = {2022},
+  eprint  = {1904.08405},
+  archivePrefix = {arXiv}
+}
+
+@article{huang2023evslamsurvey,
+  title   = {Event-based Simultaneous Localization and Mapping: A Comprehensive Survey},
+  author  = {Huang, Kunping and Zhang, Sen and Zhang, Jing and Tao, Dacheng},
+  journal = {arXiv preprint arXiv:2304.09793},
+  year    = {2024},
+  eprint  = {2304.09793},
+  archivePrefix = {arXiv},
+  note    = {Version v2 (2024-03)}
+}
+
+@article{cadena2016slamsurvey,
+  title   = {Past, Present, and Future of Simultaneous Localization and Mapping: Toward the Robust-Perception Age},
+  author  = {Cadena, Cesar and Carlone, Luca and Carrillo, Henry and Latif, Yasir and Scaramuzza, Davide and Neira, Jos{\'e} and Reid, Ian and Leonard, John J.},
+  journal = {IEEE Transactions on Robotics},
+  volume  = {32},
+  number  = {6},
+  pages   = {1309--1332},
+  year    = {2016},
+  eprint  = {1606.05830},
+  archivePrefix = {arXiv}
+}
+
+@article{ghosh2024stereosurvey,
+  title   = {Event-based Stereo Depth Estimation: A Survey},
+  author  = {Ghosh, Suman and Gallego, Guillermo},
+  journal = {IEEE Transactions on Pattern Analysis and Machine Intelligence},
+  year    = {2025},
+  eprint  = {2409.17680},
+  archivePrefix = {arXiv}
+}
+
+@article{mokssit2023dlslamsurvey,
+  title   = {Deep Learning Techniques for Visual {SLAM}: A Survey},
+  author  = {Mokssit, Saad and Licea, Daniel Bonilla and Guermah, Bassma and Ghogho, Mounir},
+  journal = {IEEE Access},
+  volume  = {11},
+  pages   = {20026--20050},
+  year    = {2023},
+  doi     = {10.1109/ACCESS.2023.3249661},
+}
+% [A VERIFIER] PDF non récupéré — métadonnées issues du référencement éditeur, non vérifiées sur le texte
+
+@article{semanticmapping2025survey,
+  title   = {Semantic Mapping in Indoor Embodied {AI} -- A Survey on Advances, Challenges, and Future Directions},
+  author  = {Yadav, Sonia Raychaudhuri and others},
+  journal = {Transactions on Machine Learning Research},
+  year    = {2025},
+  eprint  = {2501.05750},
+  archivePrefix = {arXiv},
+}
+% [A VERIFIER] Liste d'auteurs à compléter avant citation
+
+% ---------------------------------------------------------------------
+% PROFONDEUR & SÉMANTIQUE ÉVÉNEMENTIELLE
+% ---------------------------------------------------------------------
+
+@inproceedings{hidalgo2020e2depth,
+  title     = {Learning Monocular Dense Depth from Events},
+  author    = {Hidalgo-Carri{\'o}, Javier and Gehrig, Daniel and Scaramuzza, Davide},
+  booktitle = {International Conference on 3D Vision (3DV)},
+  year      = {2020},
+  eprint    = {2010.08350},
+  archivePrefix = {arXiv}
+}
+
+@inproceedings{bartolomei2025depthanyevent,
+  title     = {Depth {AnyEvent}: A Cross-Modal Distillation Paradigm for Event-Based Monocular Depth Estimation},
+  author    = {Bartolomei, Luca and Mannocci, Enrico and Tosi, Fabio and Poggi, Matteo and Mattoccia, Stefano},
+  booktitle = {IEEE/CVF International Conference on Computer Vision (ICCV)},
+  year      = {2025},
+  eprint    = {2509.15224},
+  archivePrefix = {arXiv}
+}
+
+@article{even2023,
+  title   = {{EVEN}: An Event-Based Framework for Monocular Depth Estimation at Adverse Night Conditions},
+  author  = {Zhu, Peilun and Sun, Yuning and Cao, Bo and Liu, Xiaolin},
+  journal = {arXiv preprint arXiv:2302.03860},
+  year    = {2023},
+  eprint  = {2302.03860},
+  archivePrefix = {arXiv},
+}
+% [A VERIFIER] Liste d'auteurs à vérifier avant citation
+
+@inproceedings{alonso2019evsegnet,
+  title     = {{EV-SegNet}: Semantic Segmentation for Event-Based Cameras},
+  author    = {Alonso, I{\~n}igo and Murillo, Ana C.},
+  booktitle = {IEEE/CVF Conference on Computer Vision and Pattern Recognition Workshops (CVPRW)},
+  year      = {2019},
+  eprint    = {1811.12039},
+  archivePrefix = {arXiv}
+}
+
+@inproceedings{sun2022ess,
+  title     = {{ESS}: Learning Event-based Semantic Segmentation from Still Images},
+  author    = {Sun, Zhaoning and Messikommer, Nico and Gehrig, Daniel and Scaramuzza, Davide},
+  booktitle = {European Conference on Computer Vision (ECCV)},
+  year      = {2022},
+  eprint    = {2203.10016},
+  archivePrefix = {arXiv}
+}
+
+@inproceedings{gehrig2023rvt,
+  title     = {Recurrent Vision Transformers for Object Detection with Event Cameras},
+  author    = {Gehrig, Mathias and Scaramuzza, Davide},
+  booktitle = {IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
+  year      = {2023},
+  eprint    = {2212.05598},
+  archivePrefix = {arXiv}
+}
+
+@inproceedings{eag3r2025,
+  title     = {{EAG3R}: Event-Augmented 3D Geometry Estimation for Dynamic and Extreme-Lighting Scenes},
+  author    = {Wu, Xiaoshan and Yu, Yifei and Lyu, Xiaoyang and Huang, Yihua and Wang, Bo and Zhang, Baoheng and Wang, Zhongrui and Qi, Xiaojuan},
+  booktitle = {Advances in Neural Information Processing Systems (NeurIPS)},
+  year      = {2025},
+  eprint    = {2512.00771},
+  archivePrefix = {arXiv},
+  note      = {Spotlight}
+}
+
+% ---------------------------------------------------------------------
+% DATASETS & APPLICATIF ASSISTIF / IPAL
+% ---------------------------------------------------------------------
+
+@article{huang2024tabletop,
+  title   = {A neuromorphic dataset for tabletop object segmentation in indoor cluttered environment},
+  author  = {Huang, Xiaoqian and Kachole, Sanket and Ayyad, Abdulla and Naeini, Fariborz Baghaei and Makris, Dimitrios and Zweiri, Yahya},
+  journal = {Scientific Data},
+  volume  = {11},
+  number  = {127},
+  year    = {2024},
+  doi     = {10.1038/s41597-024-02920-1}
+}
+
+@inproceedings{assistive2024rgbeventlidar,
+  title     = {Towards Robust Perception for Assistive Robotics: An {RGB}-Event-{LiDAR} Dataset and Multi-Modal Detection Pipeline},
+  author    = {Scicluna, Adam and Le Gentil, Cedric and Sutjipto, Sheila and Paul, Gavin},
+  booktitle = {IEEE International Conference on Automation Science and Engineering (CASE)},
+  year      = {2024},
+  eprint    = {2408.13394},
+  archivePrefix = {arXiv}
+}
+
+@inproceedings{eventfly2025,
+  title     = {{EventFly}: Event Camera Perception from Ground to the Sky},
+  author    = {Kong, Lingdong and Lu, Dongyue and Xu, Xiang and Ng, Lai Xing and Ooi, Wei Tsang and Cottereau, Benoit R.},
+  booktitle = {IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
+  year      = {2025},
+  eprint    = {2503.19916},
+  archivePrefix = {arXiv}
+}
+
+@inproceedings{talk2event2025,
+  title     = {{Talk2Event}: Grounded Understanding of Dynamic Scenes from Event Cameras},
+  author    = {Kong, Lingdong and Lu, Dongyue and Liang, Ao and Li, Rong and Dong, Yuhao and Hu, Tianshuai and Ng, Lai Xing and Ooi, Wei Tsang and Cottereau, Benoit R.},
+  booktitle = {Advances in Neural Information Processing Systems (NeurIPS)},
+  year      = {2025},
+  eprint    = {2507.17664},
+  archivePrefix = {arXiv},
+  note      = {Spotlight}
+}
+
+@inproceedings{ng2026eventdrive,
+  title     = {{EventDrive}: Event Cameras for Vision-Language Driving Intelligence},
+  author    = {Lu, Dongyue and Li, Rong and Liang, Ao and Kong, Lingdong and Yin, Wei and Ng, Lai Xing and Cottereau, Benoit R. and Chane, Camille Simon and Ooi, Wei Tsang},
+  booktitle = {IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
+  year      = {2026},
+  eprint    = {2606.18242},
+  archivePrefix = {arXiv}
+}
+
+% ---------------------------------------------------------------------
+% FONDAMENTAUX 3D / APPRENTISSAGE (contexte rapport)
+% ---------------------------------------------------------------------
+
+@inproceedings{qi2017pointnet,
+  title     = {{PointNet}: Deep Learning on Point Sets for 3D Classification and Segmentation},
+  author    = {Qi, Charles R. and Su, Hao and Mo, Kaichun and Guibas, Leonidas J.},
+  booktitle = {IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
+  year      = {2017},
+  eprint    = {1612.00593},
+  archivePrefix = {arXiv}
+}
+
+@inproceedings{li2018megadepth,
+  title     = {{MegaDepth}: Learning Single-View Depth Prediction from Internet Photos},
+  author    = {Li, Zhengqi and Snavely, Noah},
+  booktitle = {IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
+  year      = {2018},
+  eprint    = {1804.00607},
+  archivePrefix = {arXiv}
+}
+
+@inproceedings{mccormac2017semanticfusion,
+  title     = {{SemanticFusion}: Dense 3D Semantic Mapping with Convolutional Neural Networks},
+  author    = {McCormac, John and Handa, Ankur and Davison, Andrew J. and Leutenegger, Stefan},
+  booktitle = {IEEE International Conference on Robotics and Automation (ICRA)},
+  year      = {2017},
+  eprint    = {1609.05130},
+  archivePrefix = {arXiv}
+}
+
+% =====================================================================
+% LIGNÉE DPVO — l'architecture dont DEVO **et** RAMP-VO sont des
+% extensions. Indispensable à la section Méthode.
+% =====================================================================
+
+@inproceedings{teed2023dpvo,
+  title     = {Deep Patch Visual Odometry},
+  author    = {Teed, Zachary and Lipson, Lahav and Deng, Jia},
+  booktitle = {Advances in Neural Information Processing Systems (NeurIPS)},
+  volume    = {36},
+  year      = {2023},
+  eprint    = {2208.04726},
+  archivePrefix = {arXiv},
+  note      = {Code: https://github.com/princeton-vl/DPVO}
+}
+
+@inproceedings{teed2021droidslam,
+  title     = {{DROID-SLAM}: Deep Visual {SLAM} for Monocular, Stereo, and {RGB-D} Cameras},
+  author    = {Teed, Zachary and Deng, Jia},
+  booktitle = {Advances in Neural Information Processing Systems (NeurIPS)},
+  year      = {2021},
+  eprint    = {2108.10869},
+  archivePrefix = {arXiv}
+}
+
+@inproceedings{pellerito2024rampvo,
+  title     = {Deep Visual Odometry with Events and Frames},
+  author    = {Pellerito, Roberto and Cannici, Marco and Gehrig, Daniel and Belhadj, Joris and Dubois-Matra, Olivier and Casasco, Massimo and Scaramuzza, Davide},
+  booktitle = {IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS)},
+  year      = {2024},
+  eprint    = {2309.09947},
+  archivePrefix = {arXiv},
+  note      = {RAMP-VO. Code: https://github.com/uzh-rpg/rampvo}
+}
+
+@article{zhong2025stereodevo,
+  title   = {Deep Visual Odometry for Stereo Event Cameras},
+  author  = {Zhong, Sheng and Niu, Junkai and Zhou, Yi},
+  journal = {IEEE Robotics and Automation Letters},
+  year    = {2025},
+  eprint  = {2509.08235},
+  archivePrefix = {arXiv},
+  note    = {Stereo-DEVO. Accepted September 2025}
+}
+
+% ---------------------------------------------------------------------
+% VO DYNAMIQUE APPRISE (RGB) — le prior art du « couplage »
+% ---------------------------------------------------------------------
+
+@inproceedings{shen2023dytanvo,
+  title     = {{DytanVO}: Joint Refinement of Visual Odometry and Motion Segmentation in Dynamic Environments},
+  author    = {Shen, Shihao and Cai, Yilin and Wang, Wenshan and Scherer, Sebastian},
+  booktitle = {IEEE International Conference on Robotics and Automation (ICRA)},
+  year      = {2023},
+  eprint    = {2209.08430},
+  archivePrefix = {arXiv}
+}
+
+@inproceedings{ranjan2019cc,
+  title     = {Competitive Collaboration: Joint Unsupervised Learning of Depth, Camera Motion, Optical Flow and Motion Segmentation},
+  author    = {Ranjan, Anurag and Jampani, Varun and Balles, Lukas and Kim, Kihwan and Sun, Deqing and Wulff, Jonas and Black, Michael J.},
+  booktitle = {IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
+  year      = {2019},
+  eprint    = {1805.09806},
+  archivePrefix = {arXiv}
+}
+
+% ---------------------------------------------------------------------
+% MOTION SEGMENTATION ÉVÉNEMENTIELLE — compléments
+% ---------------------------------------------------------------------
+
+@article{zhou2021emsgc,
+  title   = {Event-based Motion Segmentation with Spatio-Temporal Graph Cuts},
+  author  = {Zhou, Yi and Gallego, Guillermo and Lu, Xiuyuan and Liu, Siqi and Shen, Shaojie},
+  journal = {IEEE Transactions on Neural Networks and Learning Systems},
+  year    = {2021},
+  eprint  = {2012.08730},
+  archivePrefix = {arXiv},
+  note    = {EMSGC}
+}
+
+@inproceedings{gallego2018cmax,
+  title     = {A Unifying Contrast Maximization Framework for Event Cameras, with Applications to Motion, Depth, and Optical Flow Estimation},
+  author    = {Gallego, Guillermo and Rebecq, Henri and Scaramuzza, Davide},
+  booktitle = {IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
+  year      = {2018},
+  eprint    = {1804.01306},
+  archivePrefix = {arXiv}
+}
+
+@article{hua2025normalflow,
+  title   = {Motion Segmentation and Egomotion Estimation from Event-Based Normal Flow},
+  author  = {Hua, Zhiyuan and Yuan, Dehao and Ferm{\"u}ller, Cornelia},
+  journal = {arXiv preprint arXiv:2507.14500},
+  year    = {2025},
+  eprint  = {2507.14500},
+  archivePrefix = {arXiv},
+}
+% [A VERIFIER] Venue non confirmée — vérifier avant soumission
+
+% ---------------------------------------------------------------------
+% FLOT OPTIQUE ÉVÉNEMENTIEL & VIO — compléments
+% ---------------------------------------------------------------------
+
+@inproceedings{zhu2018evflownet,
+  title     = {{EV-FlowNet}: Self-Supervised Optical Flow Estimation for Event-based Cameras},
+  author    = {Zhu, Alex Zihao and Yuan, Liangzhe and Chaney, Kenneth and Daniilidis, Kostas},
+  booktitle = {Robotics: Science and Systems (RSS)},
+  year      = {2018},
+  eprint    = {1802.06898},
+  archivePrefix = {arXiv}
+}
+
+@inproceedings{zhu2019unsupervised,
+  title     = {Unsupervised Event-based Learning of Optical Flow, Depth, and Egomotion},
+  author    = {Zhu, Alex Zihao and Yuan, Liangzhe and Chaney, Kenneth and Daniilidis, Kostas},
+  booktitle = {IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
+  year      = {2019},
+  eprint    = {1812.08156},
+  archivePrefix = {arXiv}
+}
+
+@article{guan2023plevio,
+  title   = {{PL-EVIO}: Robust Monocular Event-based Visual Inertial Odometry with Point and Line Features},
+  author  = {Guan, Weipeng and Chen, Peiyu and Xie, Yuhan and Lu, Peng},
+  journal = {IEEE Transactions on Automation Science and Engineering},
+  year    = {2023},
+  eprint  = {2209.12160},
+  archivePrefix = {arXiv}
+}
+
+% ---------------------------------------------------------------------
+% SIMULATEUR & DATASETS D'ENTRAÎNEMENT
+% ---------------------------------------------------------------------
+
+@inproceedings{rebecq2018esim,
+  title     = {{ESIM}: an Open Event Camera Simulator},
+  author    = {Rebecq, Henri and Gehrig, Daniel and Scaramuzza, Davide},
+  booktitle = {Conference on Robot Learning (CoRL)},
+  year      = {2018},
+  note      = {Open source: http://rpg.ifi.uzh.ch/esim}
+}
+
+@inproceedings{wang2020tartanair,
+  title     = {{TartanAir}: A Dataset to Push the Limits of Visual {SLAM}},
+  author    = {Wang, Wenshan and Zhu, Delong and Wang, Xiangwei and Hu, Yaoyu and Qiu, Yuheng and Wang, Chen and Hu, Yafei and Kapoor, Ashish and Scherer, Sebastian},
+  booktitle = {IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS)},
+  year      = {2020},
+  eprint    = {2003.14338},
+  archivePrefix = {arXiv}
+}
+
+@article{rebecq2019e2vid,
+  title   = {High Speed and High Dynamic Range Video with an Event Camera},
+  author  = {Rebecq, Henri and Ranftl, Ren{\'e} and Koltun, Vladlen and Scaramuzza, Davide},
+  journal = {IEEE Transactions on Pattern Analysis and Machine Intelligence},
+  year    = {2021},
+  eprint  = {1906.07165},
+  archivePrefix = {arXiv},
+  note    = {E2VID}
+}
+
+@article{zhu2018mvsec,
+  title   = {The Multi Vehicle Stereo Event Camera Dataset: An Event Camera Dataset for {3D} Perception},
+  author  = {Zhu, Alex Zihao and Thakur, Dinesh and Ozaslan, Tolga and Pfrommer, Bernd and Kumar, Vijay and Daniilidis, Kostas},
+  journal = {IEEE Robotics and Automation Letters},
+  volume  = {3},
+  number  = {3},
+  pages   = {2032--2039},
+  year    = {2018},
+  eprint  = {1801.10202},
+  archivePrefix = {arXiv},
+  note    = {MVSEC}
+}
+
+@article{gehrig2021dsec,
+  title   = {{DSEC}: A Stereo Event Camera Dataset for Driving Scenarios},
+  author  = {Gehrig, Mathias and Aarents, Willem and Gehrig, Daniel and Scaramuzza, Davide},
+  journal = {IEEE Robotics and Automation Letters},
+  year    = {2021},
+  eprint  = {2103.06011},
+  archivePrefix = {arXiv}
+}
+
+% --- added for the cross-dataset evaluation (2026-11-24) ---
+@inproceedings{zhou2018semidense,
+  title     = {Semi-Dense {3D} Reconstruction with a Stereo Event Camera},
+  author    = {Zhou, Yi and Gallego, Guillermo and Rebecq, Henri and Kneip, Laurent and Li, Hongdong and Scaramuzza, Davide},
+  booktitle = {European Conference on Computer Vision (ECCV)},
+  year      = {2018}
+}
+
+@article{gao2022vector,
+  title   = {{VECtor}: A Versatile Event-Centric Benchmark for Multi-Sensor {SLAM}},
+  author  = {Gao, Ling and Liang, Yuxuan and Yang, Jiaqi and Wu, Shaoxun and Wang, Chenyu and Chen, Jiaben and Kneip, Laurent},
+  journal = {IEEE Robotics and Automation Letters},
+  volume  = {7},
+  number  = {3},
+  pages   = {8217--8224},
+  year    = {2022}
+}
+
+@inproceedings{klenk2021tumvie,
+  title     = {{TUM-VIE}: The {TUM} Stereo Visual-Inertial Event Dataset},
+  author    = {Klenk, Simon and Chui, Jason and Demmel, Nikolaus and Cremers, Daniel},
+  booktitle = {IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS)},
+  year      = {2021}
+}
+
+% --- literature search of 2026-11-24 (metadata checked on the arXiv abstract pages) ---
+@inproceedings{lee2026pledvins,
+  title     = {{PLED-VINS}: A Point-Line Event-Based Visual Inertial {SLAM} for Dynamic Environments},
+  author    = {Lee, Seunghun and Nam, Jihun and Seo, Dong-Uk and Myung, Hyun},
+  booktitle = {IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS)},
+  year      = {2026},
+  eprint    = {2607.07374},
+  archivePrefix = {arXiv}
+}
+
+@inproceedings{farah2025evlayersegnet,
+  title     = {{EV-LayerSegNet}: Self-supervised Motion Segmentation using Event Cameras},
+  author    = {Farah, Youssef and Paredes-Vall{\'e}s, Federico and De Croon, Guido and Humais, Muhammad Ahmed and Sajwani, Hussain and Zweiri, Yahya},
+  booktitle = {IEEE/CVF Conference on Computer Vision and Pattern Recognition Workshops (CVPRW)},
+  year      = {2025},
+  eprint    = {2506.06596},
+  archivePrefix = {arXiv}
+}
+
+@inproceedings{yamaki2025iterative,
+  title     = {Iterative Event-based Motion Segmentation by Variational Contrast Maximization},
+  author    = {Yamaki, Ryo and Shiba, Shintaro and Gallego, Guillermo and Aoki, Yoshimitsu},
+  booktitle = {IEEE/CVF Conference on Computer Vision and Pattern Recognition Workshops (CVPRW)},
+  year      = {2025},
+  eprint    = {2504.18447},
+  archivePrefix = {arXiv}
+}
+
+@article{gandolfi2026dapevo,
+  title   = {{DAPEVO}: Deep Adaptive Patch Frame-Event Visual Odometry},
+  author  = {Gandolfi, Luca and Nascivera, Simone and Pellerito, Roberto and Zou, Rong and Plizzari, Chiara and Scaramuzza, Davide},
+  journal = {arXiv preprint arXiv:2609.30947},
+  year    = {2026}
+}
+
+@article{zhong2025dynamic3dprior,
+  title   = {Dynamic Visual {SLAM} using a General {3D} Prior},
+  author  = {Zhong, Xingguang and Jin, Liren and Popovi{\'c}, Marija and Behley, Jens and Stachniss, Cyrill},
+  journal = {arXiv preprint arXiv:2512.06868},
+  year    = {2025}
+}
+
+@inproceedings{chen2024leapvo,
+  title     = {{LEAP-VO}: Long-term Effective Any Point Tracking for Visual Odometry},
+  author    = {Chen, Weirong and Chen, Le and Wang, Rui and Pollefeys, Marc},
+  booktitle = {IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
+  year      = {2024}
+}

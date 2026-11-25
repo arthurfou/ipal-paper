@@ -1,0 +1,21 @@
+/users/eleves-b/2023/arthur.fournier/arthur_ipal/MADEVO/devo/enet.py:281: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  @autocast(enabled=False)
+gpu=NVIDIA RTX 4000 Ada Generation torch=2.4.1+cu118
+| résolution | config | patchs/frame | arêtes moy. | GFLOPs/frame (réseaux, aten) | GMACs corr. (est.) | ms/frame (GPU partagé) |
+|---|---|---|---|---|---|---|
+Loading from /Data/arthur.fournier/madevo/pretrained/DEVO.pth
+/users/eleves-b/2023/arthur.fournier/arthur_ipal/MADEVO/devo/devo.py:112: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  checkpoint = torch.load(network)
+/users/eleves-b/2023/arthur.fournier/arthur_ipal/MADEVO/devo/devo.py:541: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with autocast(enabled=self.cfg.MIXED_PRECISION):
+/users/eleves-b/2023/arthur.fournier/arthur_ipal/MADEVO/devo/devo.py:294: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with autocast(enabled=self.cfg.MIXED_PRECISION):
+/users/eleves-b/2023/arthur.fournier/arthur_ipal/MADEVO/devo/devo.py:356: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with autocast(enabled=True):
+| 180×240 | eval_rpg.yaml | 96 | 6819 | 54.5 | 0.77 | 16 |
+Loading from /Data/arthur.fournier/madevo/pretrained/DEVO.pth
+| 260×346 | eval_mvsec.yaml | 96 | 6368 | 53.7 | 0.72 | 16 |
+Loading from /Data/arthur.fournier/madevo/pretrained/DEVO.pth
+| 480×640 | eval_evimo.yaml | 96 | 6422 | 74.5 | 0.73 | 18 |
+Loading from /Data/arthur.fournier/madevo/pretrained/DEVO.pth
+| 720×1280 | eval_tumvie.yaml | 96 | 5814 | 132.7 | 0.66 | 23 |
